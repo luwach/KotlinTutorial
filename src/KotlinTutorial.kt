@@ -99,7 +99,7 @@ fun main(array: Array<String>) {
 
 //    Conditionals
 
-//    val age = 8
+    val age = 8
 //
 //    if (age < 5) {
 //        println("Go to Preschool")
@@ -111,20 +111,20 @@ fun main(array: Array<String>) {
 //    } else {
 //        println("Go to College")
 //    }
+//
+    when (age) {
 
-//    when (age) {
-//
-//        0, 1, 2, 3, 4, 5 -> println("Go to Preschool")
-//
-//        5 -> println("Go to Kindergarden")
-//
-//        in 6..17 -> {
-//            val grade = age - 5
-//            println("Go to Grade $grade")
-//        }
-//
-//        else -> println("Go to College")
-//    }
+        0, 1, 2, 3, 4, 5 -> println("Go to Preschool")
+
+        5 -> println("Go to Kindergarden")
+
+        in 6..17 -> {
+            val grade = age - 5
+            println("Go to Grade $grade")
+        }
+
+        else -> println("Go to College")
+    }
 //
 //    val x: Int = 19
 //
@@ -177,7 +177,7 @@ fun main(array: Array<String>) {
 
 //    Functions
 
-    //    fun add(num1: Int, num2: Int): Int = num1 + num2
+//    fun add(num1: Int, num2: Int): Int = num1 + num2
 //    println("5 + 4 = ${add(5, 4)}")
 //
 //    fun substract(num1: Int, num2: Int): Int = num1 - num2
@@ -193,14 +193,14 @@ fun main(array: Array<String>) {
 //    val (two, three) = nextTwo(1)
 //    println("1 $two $three")
 //
-    fun getSum(vararg nums: Int): Int {
-        var sum = 0
-        nums.forEach { n -> sum += n }
+//    fun getSum(vararg nums: Int): Int {
+//        var sum = 0
+//        nums.forEach { n -> sum += n }
+//
+//        return sum
+//    }
 
-        return sum
-    }
-
-    println("Sum : ${getSum(1,2,3,4,5)}")
+//    println("Sum : ${getSum(1,2,3,4,5)}")
 //
 //    val multiply = { num1: Int, num2: Int -> num1 * num2 }
 //
@@ -227,9 +227,9 @@ fun main(array: Array<String>) {
 //
 //    val multiply2 = {num1: Int -> num1 * 2}
 //
-//    val numList2 = arrayOf(1,2,3,4,5)
+//    val numList3 = arrayOf(1,2,3,4,5)
 //
-//    mathonList(numList2, multiply2)
+//    mathonList(numList3, multiply2)
 
 //    Collection operators
 
@@ -249,4 +249,31 @@ fun main(array: Array<String>) {
 //
 //    val times7 = numList2.map { it * 7 }
 //    times7.forEach { n -> println("times7: $n") }
+//
+//
+//    val items = listOf("apple", "bannana", "kiwi", "avocado")
+//
+//    for (index in items.indices) {
+//        println("items at $index is ${items[index]}")
+//    }
+//
+//    items.filter { it.startsWith("a") }
+//            .sortedBy { it }
+//            .map { it.toUpperCase() }
+//            .forEach { println(it) }
+
+//    data class
+
+    val game: VideoGame = VideoGame("Gears of War", "Epic Games", 8)
+
+    println(game.name)
+    println(game.publisher)
+    println(game.reviewScore)
+
+    game.component1()
+    game.component2()
+    game.component3()
+
 }
+
+data class VideoGame(val name: String, val publisher: String, var reviewScore: Int)
