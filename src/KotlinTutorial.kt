@@ -13,7 +13,7 @@ fun main(array: Array<String>) {
 //    var bigLong: Long = Long.MAX_VALUE
 //    var smallLong: Long = Long.MIN_VALUE
 //
-//    println("BigestLong : $bigLong")
+//    println("BiggestLong : $bigLong")
 //    println("SmallestLong : $smallLong")
 
 //    if (true is Boolean) {
@@ -175,62 +175,6 @@ fun main(array: Array<String>) {
 //        println("Index : $index Value: $value")
 //    }
 
-//    Functions
-
-//    fun add(num1: Int, num2: Int): Int = num1 + num2
-//    println("5 + 4 = ${add(5, 4)}")
-//
-//    fun substract(num1: Int, num2: Int): Int = num1 - num2
-//    println("5 - 4 = ${substract(5, 4)}")
-//
-//    fun sayHello(name: String): Unit = println("Hello $name")
-//    sayHello("Paul")
-//
-//    fun nextTwo(num: Int): Pair<Int, Int> {
-//        return Pair(num + 1, num + 2)
-//    }
-//
-//    val (two, three) = nextTwo(1)
-//    println("1 $two $three")
-//
-//    fun getSum(vararg nums: Int): Int {
-//        var sum = 0
-//        nums.forEach { n -> sum += n }
-//
-//        return sum
-//    }
-
-//    println("Sum : ${getSum(1,2,3,4,5)}")
-//
-//    val multiply = { num1: Int, num2: Int -> num1 * num2 }
-//
-//    println("5 * 3 = ${multiply(5, 3)}")
-
-//    High order functions
-
-//    val numList = 1..20
-//
-//    val evenList = numList.filter { it % 2 == 0 }
-//    evenList.forEach { n -> println(n) }
-//
-////    function that generates functions
-//
-//    fun makeMathFunction(num1: Int): (Int) -> Int = {num2 -> num1 * num2}
-//    val mult3 = makeMathFunction(3)
-//    println("5 * 3 = ${mult3(5)}")
-//
-//    fun mathonList (numList: Array<Int>, myFunc: (num: Int) -> Int){
-//        for(num in numList){
-//            println("MathonList ${myFunc(num)}")
-//        }
-//    }
-//
-//    val multiply2 = {num1: Int -> num1 * 2}
-//
-//    val numList3 = arrayOf(1,2,3,4,5)
-//
-//    mathonList(numList3, multiply2)
-
 //    Collection operators
 
 //    val numList2 = 1..20
@@ -250,17 +194,99 @@ fun main(array: Array<String>) {
 //    val times7 = numList2.map { it * 7 }
 //    times7.forEach { n -> println("times7: $n") }
 //
+    //Immutable collection - można tylko odczytywać - listOf, mapOf, setOf
+    val items = listOf("apple", "banana", "kiwi", "avocado")
+
+    //0..items.size - taki zapis też jest możliwy
+
+    for (index in items.indices) {
+        println("items at $index is ${items[index]}")
+    }
+
+    val myNumbers = listOf(2, 3, 4, 5, 6)
+
+    myNumbers.map { it * it }
+            .forEach { println(it) }
+
+//    inny zapis
+//    for (num in myNumbers) {
+//        println(num)
+//    }
+
+//    val myMap = mapOf(4 to "Adam", 56 to "Jane", 10 to "Jake")
 //
-//    val items = listOf("apple", "bannana", "kiwi", "avocado")
-//
-//    for (index in items.indices) {
-//        println("items at $index is ${items[index]}")
+//    for (key in myMap.keys) {
+//        println("item at $key is ${myMap[key]}")
 //    }
 //
 //    items.filter { it.startsWith("a") }
 //            .sortedBy { it }
 //            .map { it.toUpperCase() }
 //            .forEach { println(it) }
+
+//    Kotlin functions
+
+    val kotlinFunctions: KotlinFunctions = KotlinFunctions()
+//
+//    println("5 + 4 = ${kotlinFunctions.add(5, 4)}")
+//
+//    println("5 - 4 = ${kotlinFunctions.substract(5, 4)}")
+//
+//    kotlinFunctions.sayHello("Paul")
+//
+//    val (two, three) = kotlinFunctions.nextTwo(1)
+//    println("1 $two $three")
+//
+//    println("Sum : ${kotlinFunctions.getSum(1,2,3,4,5)}")
+//
+//    println("5 * 3 = ${kotlinFunctions.multiply(5, 3)}")
+//
+//    var max = kotlinFunctions.maxOfTwo(2,3)
+//
+//    var volume = kotlinFunctions.findVolume(10, 20, 30)
+//
+//    val numb: Int = 3
+//
+//    numb.isEqual(4)
+
+//    Function that generates function
+
+    val numList = 1..20
+
+    val evenList = numList.filter { it % 2 == 0 }
+
+    evenList.forEach { n -> println(n) }
+
+    val multiply2 = { num1: Int -> num1 * 2 }
+
+    val numList2 = arrayOf(1, 2, 3, 4, 5)
+
+    kotlinFunctions.mathOnList(numList2, multiply2)
+
+//    High order functions
+
+    fun makeMathFunction(num1: Int): (Int) -> Int = { num2 -> num1 * num2 }
+
+    val mult = makeMathFunction(3)
+
+    println("5 * 3 = ${mult(5)}")
+
+//    Class
+
+    val student = Student("Lukasz", 10)
+
+    println(student.id)
+
+//    Inheritance
+
+    val dog = Dog("labra", "black")
+//    dog.breed = "labra"
+//    dog.color = "black"
+    dog.bark()
+    dog.eat()
+
+    val lol: Double = Math.round(1.4 * 2) / 2.0
+    println(lol)
 
 //    data class
 
@@ -274,6 +300,10 @@ fun main(array: Array<String>) {
     game.component2()
     game.component3()
 
+    val newGame: VideoGame = game.copy(name = "Soul Reaver")
+    println(newGame)
+
 }
 
+// w data class mamy doczynienia z wartościami a nie obiektami
 data class VideoGame(val name: String, val publisher: String, var reviewScore: Int)
