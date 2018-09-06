@@ -1,6 +1,4 @@
-/**
- * Created by lukaszwachowski on 09/07/2017.
- */
+package classes
 
 class Student(name: String) {
 
@@ -15,7 +13,7 @@ class Student(name: String) {
     }
 }
 
-abstract class Pearson {
+abstract class Person {
 
     abstract var name: String
 
@@ -24,13 +22,12 @@ abstract class Pearson {
     fun goToSchool() {}         // A normal function: public and final by default
 }
 
-class Indian : Pearson() {
+class Indian : Person() {
 
     override var name: String = "dummy_name"
 
     override fun eat() {
     }
-
 }
 
 interface MyInterfaceListener {
@@ -47,7 +44,7 @@ interface MyInterfaceListener {
 
 class MyButton : MyInterfaceListener {
 
-    override var name: String = "dummy_name"
+    override var name: String = "dummy"
 
     override fun onTouch() {
         println("Button was touched")
@@ -57,3 +54,6 @@ class MyButton : MyInterfaceListener {
         super.onClick()
     }
 }
+
+//in data classes we have values, not objects
+data class VideoGame(val name: String, val publisher: String, var reviewScore: Int)
