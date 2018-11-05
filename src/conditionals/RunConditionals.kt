@@ -29,7 +29,7 @@ fun main(array: Array<String>) {
         else -> println("Go to College")
     }
 
-    val x: Int = 19
+    val x = 19
 
     when (x) {
         in 1..10 -> println("$x is in 1 - 10 range")

@@ -54,6 +54,3 @@ class MyButton : MyInterfaceListener {
         super.onClick()
     }
 }
-
-//in data classes we have values, not objects
-data class VideoGame(val name: String, val publisher: String, var reviewScore: Int)

@@ -48,4 +48,8 @@ fun main(array: Array<String>) {
             .sortedBy { it }
             .map { it.toUpperCase() }
             .forEach { println(it) }
+
+    val numbers = arrayOf(1, 2, 3, 4, 5, 6)
+    val numberSet = setOf(*numbers)
+    println(numberSet)
 }
