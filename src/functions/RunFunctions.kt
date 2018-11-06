@@ -26,7 +26,7 @@ fun main(array: Array<String>) {
     val evenList = numList.filter { it % 2 == 0 }
     evenList.forEach { n -> println(n) }
 
-    val multiply2 = { num1: Int -> num1 * 2 }
+    val multiply2: (Int) -> Int = { num1 -> num1 * 2 }
     val numList2 = arrayOf(1, 2, 3, 4, 5)
 
     kotlinFunctions.mathOnList(numList2, multiply2)
@@ -37,4 +37,25 @@ fun main(array: Array<String>) {
     val mult = makeMathFunction(3)
 
     println("5 * 3 = ${mult(5)}")
+
+    //Method reference operator
+    val multiplyFunc = ::multiplyValues
+    var result = multiplyFunc(1, 2, 3)
+
+    println(32.0.fahrenheit)
+}
+
+fun multiplyValues(one: Int, two: Int, three: Int) {
+    println("Result is equal: ${one * two * three}")
+}
+
+fun isZeroOrOne(x: Int): Boolean {
+    return when (x) {
+        0, 1 -> true
+        else -> false
+    }
+}
+
+fun cases(obj: Any) {
+
 }

@@ -51,3 +51,9 @@ fun Int.isEqual(numb: Int) {
         println("Numbers are not equal")
     }
 }
+
+val Double.fahrenheit: Double
+    get() {
+        return (this * 9 / 5) + 32
+    }
+
