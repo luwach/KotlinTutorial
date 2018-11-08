@@ -38,6 +38,9 @@ fun main(array: Array<String>) {
         println(num)
     }
 
+    val newNumbers = Array(5) { i -> i * 1 + 1 }
+    newNumbers.forEach { n -> print(n) }
+
     val myMap = mapOf(4 to "Adam", 56 to "Jane", 10 to "Jake")
 
     for (key in myMap.keys) {
